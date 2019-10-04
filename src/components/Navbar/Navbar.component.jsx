@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { auth } from '../../configs/firebase.config';
 
 const Navbar = () => {
   return (
@@ -15,6 +16,9 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="/sign-up">Sign Up</NavLink>
+          </li>
+          <li>
+            <button onClick={() => auth.signOut()}>Sign Out</button>
           </li>
         </ul>
       </div>
