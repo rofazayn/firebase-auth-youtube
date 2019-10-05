@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { auth } from '../../configs/firebase.config';
+import { connect } from 'react-redux';
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
   return (
     <div className="navbar">
       <div className="navbar__logo">Firebase Auth</div>
@@ -16,10 +18,22 @@ const Navbar = () => {
           <li>
             <NavLink to="/sign-up">Sign Up</NavLink>
           </li>
+          {currentUser && currentUser ? (
+            <li>
+              <button onClick={() => auth.signOut()}>Sign out</button>
+            </li>
+          ) : null}
         </ul>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Navbar);

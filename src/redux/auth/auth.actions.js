@@ -6,3 +6,7 @@ export const setCurrentUser = user => {
     payload: user
   };
 };
+
+export const clearCurrentUser = () => ({
+  type: authTypes.CLEAR_CURRENT_USER
+});

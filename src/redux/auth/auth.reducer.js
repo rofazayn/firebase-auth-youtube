@@ -9,7 +9,13 @@ const authReducer = (state = initialState, action) => {
     case authTypes.SET_CURRENT_USER:
       return {
         ...state,
-        payload: action.payload
+        currentUser: action.payload
+      };
+
+    case authTypes.CLEAR_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: null
       };
 
     default:
