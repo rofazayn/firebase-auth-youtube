@@ -19,7 +19,7 @@ function App({ currentUser, setCurrentUser, clearCurrentUser }) {
         clearCurrentUser();
       }
     });
-
+    
     return () => unsubscribeFromAuth();
   }, [currentUser, setCurrentUser, clearCurrentUser]);
 

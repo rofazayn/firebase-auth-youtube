@@ -23,6 +23,9 @@ const Navbar = ({ currentUser }) => {
               <button onClick={() => auth.signOut()}>Sign out</button>
             </li>
           ) : null}
+          <li>
+            <button onClick={() => auth.signOut()}>Sign Out</button>
+          </li>
         </ul>
       </div>
     </div>
