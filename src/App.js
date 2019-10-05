@@ -10,24 +10,18 @@ import { setCurrentUser, clearCurrentUser } from './redux/auth/auth.actions';
 
 function App({ currentUser, setCurrentUser, clearCurrentUser }) {
   useEffect(() => {
-    // But first we have to set up an observable
     let unsubscribeFromAuth = null;
 
     unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      // we check if a user is signed in
       if (user) {
         setCurrentUser(user);
       } else {
         clearCurrentUser();
       }
     });
-
-    return () => {
-      unsubscribeFromAuth();
-    };
+    
+    return () => unsubscribeFromAuth();
   }, [currentUser, setCurrentUser, clearCurrentUser]);
-
-  // Let's add a log out feature
 
   return (
     <div className="app">
