@@ -5,27 +5,24 @@ import { connect } from 'react-redux';
 
 const Navbar = ({ currentUser }) => {
   return (
-    <div className="navbar">
-      <div className="navbar__logo">Firebase Auth</div>
-      <div className="navbar__links">
+    <div className='navbar'>
+      <div className='navbar__logo'>Firebase Auth</div>
+      <div className='navbar__links'>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <NavLink to="/sign-in">Sign In</NavLink>
+            <NavLink to='/sign-in'>Sign In</NavLink>
           </li>
           <li>
-            <NavLink to="/sign-up">Sign Up</NavLink>
+            <NavLink to='/sign-up'>Sign Up</NavLink>
           </li>
           {currentUser && currentUser ? (
             <li>
               <button onClick={() => auth.signOut()}>Sign out</button>
             </li>
           ) : null}
-          <li>
-            <button onClick={() => auth.signOut()}>Sign Out</button>
-          </li>
         </ul>
       </div>
     </div>

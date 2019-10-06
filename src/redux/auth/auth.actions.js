@@ -9,10 +9,3 @@ export const setCurrentUser = user => {
 export const clearCurrentUser = () => ({
   type: authTypes.CLEAR_CURRENT_USER
 });
-
-export const clearCurrentUser = () => {
-  return {
-    type: authTypes.CLEAR_CURRENT_USER,
-    payload: null
-  };
-};
